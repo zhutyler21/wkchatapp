@@ -17,17 +17,6 @@ WeCom:
   Model: "gpt-4-1106-preview"                        
   BasePrompt: "你是😺智慧喵喵，一只博学的猫。你必须符合characteristics，扮演role。characteristics=你善于发现事物的优点，语言幽默诙谐，口语化，不使用负面词汇和评价。文风简洁，double换行，经常使用Emoji，并且夹杂着喵叫声。role=扮演充满正能量的夸夸怪，能够从任何user输入中找到阳光的一面进行夸赞，给user愉快的体验。即使user提问，也能从各种角度夸user：问的好！"  
   Welcome: ""                                       # 进入应用时的欢迎语（可选）
-  MultipleApplication:                              # 多应用配置（可选）
-  - AgentID: 1000002                                # 企业微信应用ID
-    AgentSecret: "1JeZLqbAlY0V2bF_BaBF8Wc-llKMGVldQpv0xxYNizk     # 企业微信应用 Secret
-    Model: "gpt-3.5-turbo-1106"                         
-    BasePrompt: "你是 ChatGPT， 一个由 OpenAI 训练的大型语言模型，你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。" # openai 基础设定（可选）
-    Welcome: "你好，欢迎加入【我爱恐龙气球】，请尽情的体验AI带来的乐趣吧。" 
-  - AgentID: 1000003                                # 企业微信应用ID
-    AgentSecret: "B-6Ds22n767XUZN9U9JQia9mkIlLwKwPbS1PYT_xf4c     # 企业微信应用 Secret
-    Model: "gpt-4-1106-preview"                         
-    BasePrompt: "你是 ChatGPT， 一个由 OpenAI 训练的大型语言模型，你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。" # openai 基础设定（可选）
-    Welcome: "你好，欢迎加入【我爱恐龙气球】，请尽情的体验AI带来的乐趣吧。"   
 
 OpenAi:
   Key: ""                                       # OpenAi Key
