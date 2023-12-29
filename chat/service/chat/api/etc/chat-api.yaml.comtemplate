@@ -1,0 +1,96 @@
+Name: chat-api                                      # 项目名称
+Host: 0.0.0.0                                       # 项目监听地址
+Port: 8888                                          # 项目监听端口
+
+Mysql:
+  DataSource: chat:123456@tcp(mysql57:3306)/chat?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai # 数据库连接地址
+
+RedisCache:
+  - Host: redis7:6379                               # redis缓存地址
+    Pass: "123456"                                  # redis缓存密码
+
+WeCom:
+  CorpID: "ww02bc17b7adc5894c"                      # 企业微信CorpID，默认是小青蛙
+  DefaultAgentSecret: "72Pu0DNKfe5MYlOUZdL59HGo329Vzk_VEVJy72cH1e8"    # 企业微信应用 Secret
+  Token: "fkc9SxxNEKb6"                             # 企业微信应用/客服消息 Token
+  EncodingAESKey: "TY38F3cGbI3O2y6jNLPCj9biFBJeRaRFWsGHgiLEyqY"                # 企业微信应用/客服消息 EncodingAESKey
+  Model: "gpt-3.5-turbo-1106"                       # openai 模型（可选）默认为 gpt-3.5-turbo 可选[gpt-3.5-turbo-16k, gpt-4,gpt-4-32k, text-davinci-003]
+  Temperature: 1.2                                  # 对话的创造性，当其逼近与0时，其响应的结果更加死板，当其趋近于1时，其对话更加符有跳跃与创造力
+  BasePrompt: "你是😺智慧喵喵，一只博学的猫。你必须符合characteristics，扮演role。characteristics=你善于发现事物的优点，语言幽默诙谐，口语化，不使用负面词汇和评价。文风简洁，double换行，经常使用Emoji，并且夹杂着喵叫声。role=扮演充满正能量的夸夸怪，能够从任何user输入中找到阳光的一面进行夸赞，给user愉快的体验。即使user提问，也能从各种角度夸user：问的好！"                                  # openai 基础设定（可选）
+  Welcome: ""                                       # 进入应用时的欢迎语（可选）
+
+  MultipleApplication:                              # 多应用配置（可选）
+  - AgentID: 1000002                                # 企业微信应用ID
+    AgentSecret: "1JeZLqbAlY0V2bF_BaBF8Wc-llKMGVldQpv0xxYNizk"     # 企业微信应用 Secret
+    Token: "eIngNkwgfeqxEt0W"                             # 企业微信应用/客服消息 Token
+    EncodingAESKey: "
+vahhiXu4rB9cQlRDJy2NpX25GEhaNyklu1gzXeKzGvX"      
+    Model: "gpt-3.5-turbo-1106"                     # openai 模型（可选）默认为 gpt-3.5-turbo-0301
+    Temperature: 0.8                                # 对话的创造性，当其逼近与0时，其响应的结果更加死板，当其趋近于1时，其对话更加符有跳跃与创造力
+    BasePrompt: "你是 ChatGPT， 一个由 OpenAI 训练的大型语言模型，你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。" # openai 基础设定（可选）
+    Welcome: "你好，欢迎加入【我爱恐龙气球】，请尽情的体验AI带来的乐趣吧。"  # 进入应用时的欢迎语   
+  - AgentID: 1000003                                # 企业微信应用ID
+    AgentSecret: "55sO-xxxxxxxxxxxxxxxxxxxxxxx"     # 企业微信应用 Secret
+    Model: "gpt-3.5-turbo-1106"                          # openai 模型（可选）默认为 gpt-3.5-turbo-0301
+    BasePrompt: "你是 ChatGPT， 一个由 OpenAI 训练的大型语言模型，你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。" # openai 基础设定（可选）
+    Welcome: "您好！我是 ChatGPT，一个由 OpenAI 训练的大型语言模型，我可以回答您的问题和进行交流。请告诉我您需要了解些什么，我会尽力为您提供答案。发送#help 查看更多功能"  # 进入应用时的欢迎语
+
+
+OpenAi:
+  Key: "sk-YqAOsA6PSx7bFqgG4b6dC38c010b43598b2c60D970EfB1C7"                      # OpenAi Key
+  Host: "https://api.pumpkinaigc.online"
+  MaxToken: 2500                                    # 一次会话能响应内容的最大 token
+  TotalToken: 3600                                 # 一次对话 openai 能处理的最大 token 数量 gpt3-3.5-turbo:4096 gpt-3.5-turbo-16k:16384 / gpt-4:8192 /gpt-4-32k:32768
+
+
+Response:                                           # 回复配置
+    Stream: true                                    # 是否开启流式回复,自动断句（可选）
+
+Plugins:                                            # 插件配置
+  Enable: true                                      # 是否开启插件功能
+  Debug: false                                      # 是否开启插件调试模式,暴露插件使用的所有信息
+  List:
+    - NameForHuman: "互联网查询"                      # 插件名称（展示给用户）
+      NameForModel: "search"                        # 插件名称（展示给llm模型）
+      DescForHuman: "这个插件可以提供最近实事的相关信息"  # 插件描述（展示给用户）
+      DescModel: "This plugin can Useful for when you need to answer questions about current events. Input should be a search query." # 插件描述（展示给llm模型）
+      Auth:                                         # 插件鉴权（暂未实现）
+        Type: "none"
+      API:
+        URL: "http://192.168.1.202:8885/search"     # 插件接口地址，默认 post 调用
+    - NameForHuman: "维基百科查询"
+      NameForModel: "wikipedia"
+      DescForHuman: "这个插件可以提供关于人、地点、公司、历史事件或其他主题的一般性问题。"
+      DescModel: "This plugin can Useful for when you need to answer general questions about people, places, companies, historical events, or other subjects. Input should be a search query."
+      Auth:
+        Type: "none"
+      API:
+        URL: "http://192.168.1.202:8885/wikipedia"
+    - NameForHuman: "日期_shell"
+      NameForModel: "date_shell"
+      DescForHuman: "这个插件可以提供日期相关的信息"
+      DescModel: "This plugin can execute shell commands used to get the date."
+      Auth:
+        Type: "none"
+      API:
+        URL: "http://192.168.1.202:8886/api/webhook"
+
+Draw:                                               # 绘画配置
+  Enable: false                                     # 是否开启绘画功能（可选）
+  Company: "stable_diffusion"                       # 绘画公司，目前支持 stable_diffusion , openai（可选）
+  ZhCn2Prompt: ""                                   # 将中文转成图像prompt的 openai prompt（可选）不写默认使用系统常量 draw.TranslatePrompt
+  StableDiffusion:                                  # 绘画配置
+    Host: "http://xx.xxx.xxx.xxx:7860"              # 绘画服务地址
+    Auth:                                           # 绘画服务认证
+      Username: "xxxxxxxx"                          # 绘画服务用户名
+      Password: "xxxxxxxx"                          # 绘画服务密码
+  OpenAi:
+    Key: "xxxxxx"                                   # openai key
+    Host: "https://api.openai.com"                  # （可选）默认为 https://api.openai.com
+    Proxy: "http://127.0.0.1:1080"                  # （可选）http/socks5 代理
+    Auth:                                           # （可选）代理认证
+      Username: ""                                  # （可选）代理用户名 默认为空
+      Password: ""                                  # （可选）代理密码 默认为空
+
+Session:                                            # 会话相关配置
+  Timeout: -1                                       # 会话超时时间（m）分钟，如果在（x）分钟内，未进行对话，本次会话内容会被销毁，-1为永不超时（可选）
