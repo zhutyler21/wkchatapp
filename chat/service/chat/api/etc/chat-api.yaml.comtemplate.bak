@@ -61,7 +61,7 @@ Plugins:                                            # 插件配置
       Auth:                                         # 插件鉴权（暂未实现）
         Type: "none"
       API:
-        URL: "http://39.106.63.240:8888/search"     # 插件接口地址，默认 post 调用
+        URL: "http://39.106.63.240:8885/search"     # 插件接口地址，默认 post 调用
     - NameForHuman: "维基百科查询"
       NameForModel: "wikipedia"
       DescForHuman: "这个插件可以提供关于人、地点、公司、历史事件或其他主题的一般性问题。"
@@ -69,7 +69,7 @@ Plugins:                                            # 插件配置
       Auth:
         Type: "none"
       API:
-        URL: "http://39.106.63.240:8888/wikipedia"
+        URL: "http://39.106.63.240:8885/wikipedia"
     - NameForHuman: "日期_shell"
       NameForModel: "date_shell"
       DescForHuman: "这个插件可以提供日期相关的信息"
@@ -77,7 +77,7 @@ Plugins:                                            # 插件配置
       Auth:
         Type: "none"
       API:
-        URL: "http://39.106.63.240:8888/api/webhook"
+        URL: "http://39.106.63.240:8886/api/webhook"
 
 Draw:                                               # 绘画配置
   Enable: true                                      # 是否开启绘画功能（可选）
