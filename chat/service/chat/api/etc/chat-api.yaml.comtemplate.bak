@@ -35,7 +35,7 @@ WeCom:
       BasePrompt: 你是 ChatGPT， 一个由 OpenAI 训练的大型语言模型，你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。
       Welcome: 你好，欢迎加入【我爱恐龙气球】，请尽情的体验AI带来的乐趣吧。
 OpenAi:
-  Key: sk-YqAOsA6PSx7bFqgG4b6dC38c010b43598b2c60D970EfB1C7
+  Key: 
   Host: https://api.pumpkinaigc.online
   MaxToken: 2500
   TotalToken: 3600
