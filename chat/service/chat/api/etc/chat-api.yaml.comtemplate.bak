@@ -89,7 +89,7 @@ Draw:                                               # 绘画配置
       Username: "xxxxxxxx"                          # 绘画服务用户名
       Password: "xxxxxxxx"                          # 绘画服务密码
   OpenAi:
-    Key: "sk-YqAOsA6PSx7bFqgG4b6dC38c010b43598b2c60D970EfB1C7"                                   # openai key
+    Key: ""                                   # openai key
     Host: "https://api.pumpkinaigc.online"                  # （可选）默认为 https://api.openai.com
     Proxy: ""                  # （可选）http/socks5 代理
     Auth:                                           # （可选）代理认证
