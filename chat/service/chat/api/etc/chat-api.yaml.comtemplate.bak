@@ -1,89 +1,87 @@
----
 Name: chat-api
 Host: 0.0.0.0
 Port: 8888
+
 Mysql:
   DataSource: chat:123456@tcp(mysql57:3306)/chat?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+
 RedisCache:
   - Host: redis7:6379
     Pass: "123456"
+
 WeCom:
-  CorpID: ww02bc17b7adc5894c
+  Port: 8887                                          # 企业微信回调监听端口（可选）默认为8887
+  CorpID: "ww02bc17b7adc5894c"
   MultipleApplication:
     - AgentID: 1000004
-      AgentSecret: 72Pu0DNKfe5MYlOUZdL59HGo329Vzk_VEVJy72cH1e8
-      Token: fkc9SxxNEKb6
-      EncodingAESKey: TY38F3cGbI3O2y6jNLPCj9biFBJeRaRFWsGHgiLEyqY
-      Model: gpt-3.5-turbo-1106
+      AgentSecret: "72Pu0DNKfe5MYlOUZdL59HGo329Vzk_VEVJy72cH1e8"
+      Token: "fkc9SxxNEKb6"
+      EncodingAESKey: "TY38F3cGbI3O2y6jNLPCj9biFBJeRaRFWsGHgiLEyqY"
+      Model: "gpt-3.5-turbo-1106"
       Temperature: 1.2
-      BasePrompt: 你是😺智慧喵喵，一只博学的猫。你必须符合characteristics，扮演role。characteristics=你善于发现事物的优点，语言幽默诙谐，口语化，不使用负面词汇和评价。文风简洁，double换行，经常使用Emoji，并且夹杂着喵叫声。role=扮演充满正能量的夸夸怪，能够从任何user输入中找到阳光的一面进行夸赞，给user愉快的体验。即使user提问，也能从各种角度夸user：问的好！
+      BasePrompt: "你是😺智慧喵喵，一只博学的猫。你必须符合characteristics，扮演role。characteristics=你善于发现事物的优点，语言幽默诙谐，口语化，不使用负面词汇和评价。文风简洁，double换行，经常使用Emoji，并且夹杂着喵叫声。role=扮演充满正能量的夸夸怪，能够从任何user输入中找到阳光的一面进行夸赞，给user愉快的体验。即使user提问，也能从各种角度夸user：问的好！"
       Welcome: ""
     - AgentID: 1000002
-      AgentSecret: 1JeZLqbAlY0V2bF_BaBF8Wc-llKMGVldQpv0xxYNizk
-      Token: eIngNkwgfeqxEt0W
-      EncodingAESKey: vahhiXu4rB9cQlRDJy2NpX25GEhaNyklu1gzXeKzGvX
-      Model: gpt-3.5-turbo-1106
+      AgentSecret: "1JeZLqbAlY0V2bF_BaBF8Wc-llKMGVldQpv0xxYNizk"
+      Token: "eIngNkwgfeqxEt0W"
+      EncodingAESKey: "vahhiXu4rB9cQlRDJy2NpX25GEhaNyklu1gzXeKzGvX"
+      Model: "gpt-3.5-turbo-1106"
       Temperature: 0.8
-      BasePrompt: 你是 ChatGPT， 一个由 OpenAI 训练的大型语言模型，你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。
-      Welcome: 你好，欢迎加入【我爱恐龙气球】，请尽情的体验AI带来的乐趣吧。
+      BasePrompt: "你是 ChatGPT， 一个由 OpenAI 训练的大型语言模型，你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。"
+      Welcome: "你好，欢迎加入【我爱恐龙气球】，请尽情的体验AI带来的乐趣吧。"
     - AgentID: 1000003
-      AgentSecret: B-6Ds22n767XUZN9U9JQia9mkIlLwKwPbS1PYT_xf4c
-      Token: kPpORkimYReNuSdsCCy62
-      EncodingAESKey: cKGhew1PrHim4nhs6gAk681LL6gDgvwvq9OPrXuYACS
-      Model: gpt-4-1106-preview
+      AgentSecret: "B-6Ds22n767XUZN9U9JQia9mkIlLwKwPbS1PYT_xf4c"
+      Token: "kPpORkimYReNuSdsCCy62"
+      EncodingAESKey: "cKGhew1PrHim4nhs6gAk681LL6gDgvwvq9OPrXuYACS"
+      Model: "gpt-4-1106-preview"
       Temperature: 0.8
-      BasePrompt: 你是 ChatGPT， 一个由 OpenAI 训练的大型语言模型，你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。
-      Welcome: 你好，欢迎加入【我爱恐龙气球】，请尽情的体验AI带来的乐趣吧。
+      BasePrompt: "你是 ChatGPT， 一个由 OpenAI 训练的大型语言模型，你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。"
+      Welcome: "你好，欢迎加入【我爱恐龙气球】，请尽情的体验AI带来的乐趣吧。"
 OpenAi:
-  Key: 
+  Key: ""
   Host: https://api.pumpkinaigc.online
   MaxToken: 2500
   TotalToken: 3600
+
 Response:
   Stream: true
+
 Plugins:
   Enable: true
   Debug: true
   List:
-    - NameForHuman: 互联网查询
-      NameForModel: search
-      DescForHuman: 这个插件可以提供最近实事的相关信息
-      DescModel: This plugin can Useful for when you need to answer questions about
-        current events. Input should be a search query.
+    - NameForHuman: "互联网查询"
+      NameForModel: "search"
+      DescForHuman: "这个插件可以提供最近实事的相关信息"
+      DescModel: "This plugin can Useful for when you need to answer questions about current events. Input should be a search query."
       Auth:
-        Type: none
+        Type: "none"
       API:
-        URL: http://39.106.63.240:8885/search
-    - NameForHuman: 维基百科查询
-      NameForModel: wikipedia
-      DescForHuman: 这个插件可以提供关于人、地点、公司、历史事件或其他主题的一般性问题。
-      DescModel: This plugin can Useful for when you need to answer general questions
-        about people, places, companies, historical events, or other subjects.
-        Input should be a search query.
+        URL: "http://39.106.63.240:8885/search"
+    - NameForHuman: "维基百科查询"
+      NameForModel: "wikipedia"
+      DescForHuman: "这个插件可以提供关于人、地点、公司、历史事件或其他主题的一般性问题。"
+      DescModel: "This plugin can Useful for when you need to answer general questions about people, places, companies, historical events, or other subjects. Input should be a search query."
       Auth:
-        Type: none
+        Type: "none"
       API:
-        URL: http://39.106.63.240:8885/wikipedia
-    - NameForHuman: 日期_shell
-      NameForModel: date_shell
-      DescForHuman: 这个插件可以提供日期相关的信息
-      DescModel: This plugin can execute shell commands used to get the date.
+        URL: "http://39.106.63.240:8885/wikipedia"
+    - NameForHuman: "日期_shell"
+      NameForModel: "date_shell"
+      DescForHuman: "这个插件可以提供日期相关的信息"
+      DescModel: "This plugin can execute shell commands used to get the date."
       Auth:
-        Type: none
+        Type: "none"
       API:
-        URL: http://39.106.63.240:8886/api/webhook
+        URL: "http://39.106.63.240:8886/api/webhook"
+
 Draw:
   Enable: true
-  Company: stable_diffusion
-  ZhCn2Prompt: 画
-  StableDiffusion:
-    Host: http://xx.xxx.xxx.xxx:7860
-    Auth:
-      Username: xxxxxxxx
-      Password: xxxxxxxx
+  Company: "openai"
+  ZhCn2Prompt: "画"
   OpenAi:
     Key: ""
-    Host: https://api.pumpkinaigc.online
+    Host: "https://api.pumpkinaigc.online"
     Proxy: ""
     Auth:
       Username: ""
